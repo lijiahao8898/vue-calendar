@@ -104,7 +104,7 @@
                 return new Date(d.getFullYear(), (d.getMonth() + 1), 0).getDate();
             },
             findWeather () {
-                const cityUrl = 'http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js';
+                const cityUrl = 'https://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js';
                 console.log(cityUrl);
                 this.$axios.get(cityUrl)
                     .then(function (response) {
