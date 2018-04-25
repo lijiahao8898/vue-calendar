@@ -64,7 +64,7 @@
             init () {
                 const firstDay = new Date(this.year, this.month, 1);
                 const dayLength = this.getDayCounts();
-                const start = firstDay.getDay() || 6;
+                const start = (firstDay.getDay() || 7) - 1;
                 const arr = [];
                 let n = 1;
                 for (let i = 0; i < (dayLength + start); i++) {
