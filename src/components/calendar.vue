@@ -68,7 +68,7 @@
                 const arr = [];
                 let n = 1;
                 for (let i = 0; i < (dayLength + start); i++) {
-                    const d = new Date(this.year, this.month, i + 1 - start - firstDay.getDay());
+                    const d = new Date(this.year, this.month, n);
                     if (i < start) {
                         arr[i] = ({
                             day: '',
@@ -77,14 +77,16 @@
                         });
                     } else {
                         arr[i] = ({
-                            day: n,
+                            day: d.getDate(),
                             week: d.getDay(),
-                            active: this.isActive(d, this.today)
+                            active: this.isActive(d, this.today, i)
                         });
                         n++;
                     }
                 }
                 this.dateArr = arr;
+                console.log(arr);
+                console.log(firstDay.getDate());
             },
             goPre () {
                 this.dateTime = new Date(this.dateTime.getFullYear(), this.month - 1, 1);
@@ -94,8 +96,11 @@
                 this.dateTime = new Date(this.dateTime.getFullYear(), this.month + 1, 1);
                 this.init();
             },
-            isActive (d, today) {
-                return d.getDate() === today.getDate() && this.month === this.toMonth && this.year === this.toYear ? true : false;
+            isActive (d, today, i) {
+                if (d.getDate() === today.getDate() && this.month === this.toMonth && this.year === this.toYear) {
+                    return true;
+                }
+                return false;
             },
             getDayCounts () {
                 let d = this.dateTime;
