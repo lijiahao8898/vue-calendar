@@ -85,8 +85,6 @@
                     }
                 }
                 this.dateArr = arr;
-                console.log(arr);
-                console.log(firstDay.getDate());
             },
             goPre () {
                 this.dateTime = new Date(this.dateTime.getFullYear(), this.month - 1, 1);
