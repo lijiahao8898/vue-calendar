@@ -53,7 +53,7 @@
                 const date = this.date;
                 this.today = new Date(year, month, date);
                 this.toMonth = month;
-                this.toYear = year;
+                this.toYear = year
                 await this.init();
                 this.$refs.calendar.style.marginTop = (window.innerHeight - this.$refs.calendar.clientHeight) / 2 + 'px';
             });
