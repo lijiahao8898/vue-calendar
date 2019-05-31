@@ -25,11 +25,12 @@
         data () {
             return {
                 dateTime: new Date(),
-                today: '',                  // 当天
-                toMonth: '',                // 当天的月份
-                toYear: '',                 // 当天的年份
+                today: '',
+                toMonth: '',
+                toYear: '',
                 dateArr: [],
-                weeks: ['一', '二', '三', '四', '五', '六', '日']
+                weeks: ['一', '二', '三', '四', '五', '六', '日'],
+                targetDate: '2018-07-21'
             };
         },
         computed: {
@@ -53,7 +54,7 @@
                 const date = this.date;
                 this.today = new Date(year, month, date);
                 this.toMonth = month;
-                this.toYear = year
+                this.toYear = year;
                 await this.init();
                 this.$refs.calendar.style.marginTop = (window.innerHeight - this.$refs.calendar.clientHeight) / 2 + 'px';
             });
